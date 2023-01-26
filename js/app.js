@@ -106,7 +106,7 @@ $(document).ready(function () {
 		});
 
 		// This block loads new rows
-		$(window).scroll(function () {
+		$("#app-content").scroll(function () {
 			Gallery.view.loadVisibleRows(Gallery.albumMap[Gallery.currentAlbum]);
 		});
 

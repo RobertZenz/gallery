@@ -170,10 +170,10 @@
 			 * At this stage, there is no loading taking place, so we can look for new rows
 			 */
 
-			var scroll = $(window).scrollTop() + $(window).scrollTop();
+			var scroll = $("#app-content").scrollTop() + $("#app-content").scrollTop();
 			// 2 windows worth of rows is the limit from which we need to start loading new rows.
 			// As we scroll down, it grows
-			var targetHeight = ($(window).height() * 2) + scroll;
+			var targetHeight = ($("#app-content").height() * 2) + scroll;
 			// We throttle rows in order to try and not generate too many CSS resizing events at
 			// the same time
 			var showRows = _.throttle(function (album) {
