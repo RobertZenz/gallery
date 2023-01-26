@@ -1,3 +1,11 @@
+# HACKED Gallery
+
+This is a hacked together version of Gallery to make it work on NextCloud 25 (and above?).
+
+No new features are planned to be implemented but if you notice that something is broken you can open an issue for it.
+
+---
+
 # 💀Gallery was replaced by :camera_flash: Photos
 
 
