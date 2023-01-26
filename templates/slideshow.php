@@ -20,7 +20,7 @@
 		   data-possible-permissions="31">
 		</a>
 	</div>
-	<div class="progress icon-pause icon-shadow icon-white icon-32"/>
+	<div class="progress icon-pause icon-shadow icon-white icon-32"></div>
 	<div class="name">
 		<div class="title"></div>
 	</div>
