@@ -4,6 +4,8 @@ This is a hacked together version of Gallery to make it work on NextCloud 25 (an
 
 No new features are planned to be implemented but if you notice that something is broken you can open an issue for it.
 
+To install the app, download [this repository as zip](https://github.com/RobertZenz/gallery/archive/refs/heads/master.zip), unpack it and copy the "gallery-master" directory into the NextCloud apps directory. Rename it from "gallery-master" to "gallery" while you're at it. Then you should be able to activate it just like any other app.
+
 ---
 
 # 💀Gallery was replaced by :camera_flash: Photos
