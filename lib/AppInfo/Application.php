@@ -271,7 +271,7 @@ class Application extends App {
 		/**
 		 * OCA External
 		 */
-		if (\OCP\App::isEnabled('ocutility')) {
+		if (false /* \OCP\App::isEnabled('ocutility') */) {
 			// @codeCoverageIgnoreStart
 			$container->registerService(
 				'UtilityContainer', function () {
