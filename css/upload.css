@@ -33,7 +33,6 @@
 
 .actions.creatable {
 	position: relative;
-	z-index: -30;
 	display: flex;
 	flex: 1 1;
 }
