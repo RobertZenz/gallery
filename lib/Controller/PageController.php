@@ -18,6 +18,7 @@ use OCP\AppFramework\Http\Template\ExternalShareMenuAction;
 use OCP\AppFramework\Http\Template\LinkMenuAction;
 use OCP\AppFramework\Http\Template\PublicTemplateResponse;
 use OCP\AppFramework\Http\Template\SimpleMenuAction;
+use OCP\EventDispatcher\IEventDispatcher;
 use OCP\IL10N;
 use OCP\IURLGenerator;
 use OCP\IRequest;
@@ -30,7 +31,6 @@ use OCP\AppFramework\Http\RedirectResponse;
 
 use OCA\Gallery\Environment\Environment;
 use OCA\Gallery\Http\ImageResponse;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
  * Generates templates for the landing page from within ownCloud, the public
@@ -46,7 +46,7 @@ class PageController extends Controller {
 	private $urlGenerator;
 	/** @var IConfig */
 	private $appConfig;
-	/** @var EventDispatcherInterface */
+	/** @var IEventDispatcher */
 	private $dispatcher;
 	/** @var IL10N */
 	private $l10n;
@@ -59,7 +59,7 @@ class PageController extends Controller {
 	 * @param Environment $environment
 	 * @param IURLGenerator $urlGenerator
 	 * @param IConfig $appConfig
-	 * @param EventDispatcherInterface $dispatcher
+	 * @param IEventDispatcher $dispatcher
 	 * @param IL10N $l10n
 	 */
 	public function __construct(
@@ -68,7 +68,7 @@ class PageController extends Controller {
 		Environment $environment,
 		IURLGenerator $urlGenerator,
 		IConfig $appConfig,
-		EventDispatcherInterface $dispatcher,
+		IEventDispatcher $dispatcher,
 		IL10N $l10n
 	) {
 		parent::__construct($appName, $request);
@@ -100,7 +100,7 @@ class PageController extends Controller {
 		// Parameters sent to the template
 		$params = $this->getIndexParameters($appName);
 
-		$this->dispatcher->dispatch('OCP\Share::loadSocial');
+		// TODO $this->dispatcher->dispatch('OCP\Share::loadSocial');
 
 		// Will render the page using the template found in templates/index.php
 		$response = new TemplateResponse($appName, 'index', $params);

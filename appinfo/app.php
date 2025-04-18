@@ -14,11 +14,13 @@
 
 namespace OCA\Gallery\AppInfo;
 
+use OCP\EventDispatcher\IEventDispatcher;
 use OCP\Util;
 
 $app = new Application();
 $c = $app->getContainer();
 $appName = $c->query('AppName');
+$dispatcher = $c->query(IEventDispatcher::class);
 
 /**
  * Menu entry
@@ -73,5 +75,5 @@ $loadScripts = function() use ($appName) {
 	Util::addStyle($appName, 'share');
 };// @codeCoverageIgnoreEnd
 
-\OC::$server->getEventDispatcher()->addListener('OCA\Files::loadAdditionalScripts', $loadScripts);
-\OC::$server->getEventDispatcher()->addListener('OCA\Files_Sharing::loadAdditionalScripts', $loadScripts);
+$dispatcher->addListener('OCA\Files::loadAdditionalScripts', $loadScripts);
+$dispatcher->addListener('OCA\Files_Sharing::loadAdditionalScripts', $loadScripts);
