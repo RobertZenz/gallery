@@ -12,7 +12,7 @@
 
 namespace OCA\Gallery\Service;
 
-use OCP\Util;
+use \Psr\Log\LoggerInterface;
 
 /**
  * Thrown when the service cannot reply to a request
@@ -25,7 +25,7 @@ class ServiceException extends \Exception {
 	 * @param string $msg the message contained in the exception
 	 */
 	public function __construct($msg) {
-		Util::writeLog('gallery', 'Exception: ' . $msg, Util::ERROR);
+		\OCP\Server::get(LoggerInterface::class)->error('gallery Exception: ' . $msg);
 		parent::__construct($msg);
 	}
 }

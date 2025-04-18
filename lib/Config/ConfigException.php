@@ -12,8 +12,6 @@
 
 namespace OCA\Gallery\Config;
 
-use OCP\Util;
-
 /**
  * Thrown when the configuration parser cannot parse a file
  */
@@ -25,7 +23,7 @@ class ConfigException extends \Exception {
 	 * @param string $msg the message contained in the exception
 	 */
 	public function __construct($msg) {
-		Util::writeLog('gallery', 'Exception: ' . $msg, Util::ERROR);
+		\OCP\Server::get(LoggerInterface::class)->error('gallery Exception: ' . $msg);
 		parent::__construct($msg);
 	}
 }

@@ -12,8 +12,6 @@
 
 namespace OCA\Gallery\Environment;
 
-use OCP\Util;
-
 /**
  * Thrown when the Environment runs into a problem
  */
@@ -25,7 +23,7 @@ class EnvironmentException extends \Exception {
 	 * @param string $msg the message contained in the exception
 	 */
 	public function __construct($msg) {
-		Util::writeLog('gallery', 'Exception' . $msg, Util::ERROR);
+		\OCP\Server::get(LoggerInterface::class)->error('gallery Exception' . $msg);
 		parent::__construct($msg);
 	}
 }
