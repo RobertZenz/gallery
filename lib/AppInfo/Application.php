@@ -77,7 +77,7 @@ class Application extends App {
 		$container->registerService(
 			'PageController', function (IContainer $c) {
 			return new PageController(
-				$c->query('AppName'),
+				$c->query('appName'),
 				$c->query('Request'),
 				$c->query('Environment'),
 				$c->query('OCP\IURLGenerator'),
@@ -90,7 +90,7 @@ class Application extends App {
 		$container->registerService(
 			'ConfigController', function (IContainer $c) {
 			return new ConfigController(
-				$c->query('AppName'),
+				$c->query('appName'),
 				$c->query('Request'),
 				$c->query('ConfigService'),
 				$c->query('Logger')
@@ -100,7 +100,7 @@ class Application extends App {
 		$container->registerService(
 			'ConfigPublicController', function (IContainer $c) {
 			return new ConfigPublicController(
-				$c->query('AppName'),
+				$c->query('appName'),
 				$c->query('Request'),
 				$c->query('ConfigService'),
 				$c->query('Logger')
@@ -110,7 +110,7 @@ class Application extends App {
 		$container->registerService(
 			'ConfigApiController', function (IContainer $c) {
 			return new ConfigApiController(
-				$c->query('AppName'),
+				$c->query('appName'),
 				$c->query('Request'),
 				$c->query('ConfigService'),
 				$c->query('Logger')
@@ -120,7 +120,7 @@ class Application extends App {
 		$container->registerService(
 			'FilesController', function (IContainer $c) {
 			return new FilesController(
-				$c->query('AppName'),
+				$c->query('appName'),
 				$c->query('Request'),
 				$c->query('OCP\IURLGenerator'),
 				$c->query('SearchFolderService'),
@@ -134,7 +134,7 @@ class Application extends App {
 		$container->registerService(
 			'FilesPublicController', function (IContainer $c) {
 			return new FilesPublicController(
-				$c->query('AppName'),
+				$c->query('appName'),
 				$c->query('Request'),
 				$c->query('OCP\IURLGenerator'),
 				$c->query('SearchFolderService'),
@@ -148,7 +148,7 @@ class Application extends App {
 		$container->registerService(
 			'FilesApiController', function (IContainer $c) {
 			return new FilesApiController(
-				$c->query('AppName'),
+				$c->query('appName'),
 				$c->query('Request'),
 				$c->query('OCP\IURLGenerator'),
 				$c->query('SearchFolderService'),
@@ -162,7 +162,7 @@ class Application extends App {
 		$container->registerService(
 			'PreviewController', function (IContainer $c) {
 			return new PreviewController(
-				$c->query('AppName'),
+				$c->query('appName'),
 				$c->query('Request'),
 				$c->query('OCP\IURLGenerator'),
 				$c->query('ConfigService'),
@@ -177,7 +177,7 @@ class Application extends App {
 		$container->registerService(
 			'PreviewPublicController', function (IContainer $c) {
 			return new PreviewPublicController(
-				$c->query('AppName'),
+				$c->query('appName'),
 				$c->query('Request'),
 				$c->query('OCP\IURLGenerator'),
 				$c->query('ConfigService'),
@@ -192,7 +192,7 @@ class Application extends App {
 		$container->registerService(
 			'PreviewApiController', function (IContainer $c) {
 			return new PreviewApiController(
-				$c->query('AppName'),
+				$c->query('appName'),
 				$c->query('Request'),
 				$c->query('OCP\IURLGenerator'),
 				$c->query('ConfigService'),
@@ -234,7 +234,13 @@ class Application extends App {
 		$container->registerService(
 			'UserFolder', function (IAppContainer $c) {
 			return $c->getServer()
-					 ->getUserFolder($c->query('UserId'));
+					 ->getUserFolder($c->query('userId'));
+		}
+		);
+		$container->registerService(
+			'userFolder', function (IAppContainer $c) {
+			return $c->getServer()
+					 ->getUserFolder($c->query('userId'));
 		}
 		);
 
@@ -249,8 +255,8 @@ class Application extends App {
 		$container->registerService(
 			'Environment', function (IContainer $c) {
 			return new Environment(
-				$c->query('AppName'),
-				$c->query('UserId'),
+				$c->query('appName'),
+				$c->query('userId'),
 				$c->query('UserFolder'),
 				$c->query('OCP\IUserManager'),
 				$c->query('OCP\Files\IRootFolder'),
@@ -300,7 +306,7 @@ class Application extends App {
 		$container->registerService(
 			'SearchFolderService', function (IContainer $c) {
 			return new SearchFolderService(
-				$c->query('AppName'),
+				$c->query('appName'),
 				$c->query('Environment'),
 				$c->query('Logger')
 			);
@@ -309,7 +315,7 @@ class Application extends App {
 		$container->registerService(
 			'ConfigService', function (IContainer $c) {
 			return new ConfigService(
-				$c->query('AppName'),
+				$c->query('appName'),
 				$c->query('Environment'),
 				$c->query('ConfigParser'),
 				$c->query('OCP\IPreview'),
@@ -320,7 +326,7 @@ class Application extends App {
 		$container->registerService(
 			'SearchMediaService', function (IContainer $c) {
 			return new SearchMediaService(
-				$c->query('AppName'),
+				$c->query('appName'),
 				$c->query('Environment'),
 				$c->query('Logger')
 			);
@@ -334,7 +340,7 @@ class Application extends App {
 		$container->registerService(
 			'PreviewService', function (IContainer $c) {
 			return new PreviewService(
-				$c->query('AppName'),
+				$c->query('appName'),
 				$c->query('Environment'),
 				$c->query('OCP\IPreview'),
 				$c->query('Logger')
@@ -344,7 +350,7 @@ class Application extends App {
 		$container->registerService(
 			'DownloadService', function (IContainer $c) {
 			return new DownloadService(
-				$c->query('AppName'),
+				$c->query('appName'),
 				$c->query('Environment'),
 				$c->query('Logger')
 			);
@@ -358,7 +364,7 @@ class Application extends App {
 			'SharingCheckMiddleware',
 			function (IAppContainer $c) {
 				return new SharingCheckMiddleware(
-					$c->query('AppName'),
+					$c->query('appName'),
 					$c->query('Request'),
 					$c->query('OCP\IConfig'),
 					$c->query('OCP\AppFramework\Utility\IControllerMethodReflector'),
@@ -371,7 +377,7 @@ class Application extends App {
 			'EnvCheckMiddleware',
 			function (IContainer $c) {
 				return new EnvCheckMiddleware(
-					$c->query('AppName'),
+					$c->query('appName'),
 					$c->query('Request'),
 					$c->query('OCP\Security\IHasher'),
 					$c->query('Session'),
