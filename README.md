@@ -1,6 +1,8 @@
 # HACKED Gallery
 
-This is a hacked together version of Gallery to make it work on NextCloud 25 (and above?).
+This is a hacked together version of Gallery to make it work on NextCloud 29 (and above?).
+
+ > **IMPORTANT:** Because of [bug #52265 in NextCloud itself](https://github.com/nextcloud/server/issues/52265) one must patch a NextCloud file as outlined in the bug report.
 
 No new features are planned to be implemented but if you notice that something is broken you can open an issue for it.
 
