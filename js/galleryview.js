@@ -595,7 +595,7 @@
 			if (!$target.hasClass('.button')) {
 				$target = $target.closest('.button');
 			}
-			this._newButton.tooltip('hide');
+			this._newButton.tooltip('close');
 			event.preventDefault();
 			if ($target.hasClass('disabled')) {
 				return false;

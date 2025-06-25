@@ -457,7 +457,7 @@
 						self._pendingOperationsCount++;
 
 						$shareWithField.removeClass('error')
-							.tooltip('hide');
+							.tooltip('close');
 
 						self._getSuggestions(
 							search.term.trim(),
@@ -492,7 +492,7 @@
 								}
 								$('#shareWith').addClass('error')
 									.attr('data-original-title', title)
-									.tooltip('hide')
+									.tooltip('close')
 									.tooltip({
 										placement: 'bottom',
 										trigger: 'manual',
@@ -625,7 +625,7 @@
 
 				$('#shareWith').on('input', function () {
 					if ($(this).val().length < 2) {
-						$(this).removeClass('error').tooltip('hide');
+						$(this).removeClass('error').tooltip('close');
 					}
 				});
 
@@ -806,7 +806,7 @@
 		 */
 		hideDropDown: function (callback) {
 			this.currentShares = null;
-			$('[data-original-title]').tooltip('hide');
+			$('[data-original-title]').tooltip('close');
 			$('#dropdown').slideUp(OC.menuSpeed, function () {
 				Gallery.Share.droppedDown = false;
 				$('#dropdown').remove();
@@ -1492,7 +1492,7 @@ $(document).ready(function () {
 	$(document).on('change', '#dropdown #expirationDate', function () {
 		var shareId = $('#linkCheckbox').data('id');
 
-		$(this).tooltip('hide');
+		$(this).tooltip('close');
 		$(this).removeClass('error');
 
 		$.ajax({
@@ -1593,7 +1593,7 @@ $(document).ready(function () {
 
 		var url = $(event.currentTarget).data('url');
 		var newWindow = $(event.currentTarget).data('window');
-		$(event.currentTarget).tooltip('hide');
+		$(event.currentTarget).tooltip('close');
 		if (url) {
 			if (newWindow === true) {
 				var width = 600;
