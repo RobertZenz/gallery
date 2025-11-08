@@ -116,7 +116,7 @@ class PreviewService extends Service {
 				'mimetype' => $mimeType
 			];
 		} catch (\Exception $exception) {
-			$this->logger->logException($exception, ['app' => 'gallery']);
+			$this->logger->error('Exception caught: ' . $exception->getMessage() , ['app' => 'gallery', 'exception' => $exception]);
 			throw new InternalServerErrorServiceException('Preview generation has failed');
 		}
 	}
