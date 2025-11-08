@@ -49,6 +49,15 @@
 		<nextcloud min-version="18" max-version="99" />
 	</dependencies>
 
+	<navigations>
+		<navigation>
+			<name>Gallery</name>
+			<route>gallery.page.index</route>
+			<icon>app.svg</icon>
+			<order>99</order>
+		</navigation>
+	</navigations>
+
 	<documentation>
 		<user>https://github.com/nextcloud/gallery/blob/master/README.md</user>
 		<admin>https://github.com/nextcloud/gallery/blob/master/README.md</admin>
