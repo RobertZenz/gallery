@@ -20,7 +20,7 @@ use OCP\Constants;
 use OCP\IRequest;
 use OCP\IURLGenerator;
 use OCP\ISession;
-use OCP\ILogger;
+use Psr\Log\LoggerInterface;
 use OCP\Share;
 use OCP\Share\IShare;
 use OCP\Share\Exceptions\ShareNotFound;
@@ -63,7 +63,7 @@ class EnvCheckMiddleware extends CheckMiddleware {
 	 * @param Environment $environment
 	 * @param IControllerMethodReflector $reflector
 	 * @param IURLGenerator $urlGenerator
-	 * @param ILogger $logger
+	 * @param LoggerInterface $logger
 	 * @param IManager $shareManager
 	 */
 	public function __construct(
@@ -75,7 +75,7 @@ class EnvCheckMiddleware extends CheckMiddleware {
 		IControllerMethodReflector $reflector,
 		IURLGenerator $urlGenerator,
 		IManager $shareManager,
-		ILogger $logger
+		LoggerInterface $logger
 	) {
 		parent::__construct(
 			$appName,

@@ -14,7 +14,7 @@ namespace OCA\Gallery\Controller;
 
 use OCP\IRequest;
 use OCP\IURLGenerator;
-use OCP\ILogger;
+use Psr\Log\LoggerInterface;
 use OCP\Files\File;
 
 use OCP\AppFramework\ApiController;
@@ -51,7 +51,7 @@ class PreviewApiController extends ApiController {
 	 * @param PreviewService $previewService
 	 * @param DownloadService $downloadService
 	 * @param EventSource $eventSource
-	 * @param ILogger $logger
+	 * @param LoggerInterface $logger
 	 */
 	public function __construct(
 		$appName,
@@ -62,7 +62,7 @@ class PreviewApiController extends ApiController {
 		PreviewService $previewService,
 		DownloadService $downloadService,
 		EventSource $eventSource,
-		ILogger $logger
+		LoggerInterface $logger
 	) {
 		parent::__construct($appName, $request);
 

@@ -16,7 +16,7 @@ namespace OCA\Gallery\Controller;
 
 use Exception;
 
-use OCP\ILogger;
+use Psr\Log\LoggerInterface;
 use OCP\IRequest;
 use OCP\IURLGenerator;
 
@@ -39,13 +39,13 @@ trait HttpError {
 	/**
 	 * @param \Exception $exception
 	 * @param IRequest $request
-	 * @param ILogger $logger
+	 * @param LoggerInterface $logger
 	 *
 	 * @return JSONResponse
 	 */
 	public function jsonError(Exception $exception,
 							  IRequest $request,
-							  ILogger $logger) {
+							  LoggerInterface $logger) {
 		$code = $this->getHttpStatusCode($exception);
 
 		// If the exception is not of type ForbiddenServiceException only show a

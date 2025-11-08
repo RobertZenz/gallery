@@ -16,7 +16,7 @@ namespace OCA\Gallery\Middleware;
 
 use OCP\IConfig;
 use OCP\IRequest;
-use OCP\ILogger;
+use Psr\Log\LoggerInterface;
 use OCP\IURLGenerator;
 
 use OCP\AppFramework\Http;
@@ -42,7 +42,7 @@ class SharingCheckMiddleware extends CheckMiddleware {
 	 * @param IConfig $appConfig
 	 * @param IControllerMethodReflector $reflector
 	 * @param IURLGenerator $urlGenerator
-	 * @param ILogger $logger
+	 * @param LoggerInterface $logger
 	 */
 	public function __construct(
 		$appName,
@@ -50,7 +50,7 @@ class SharingCheckMiddleware extends CheckMiddleware {
 		IConfig $appConfig,
 		IControllerMethodReflector $reflector,
 		IURLGenerator $urlGenerator,
-		ILogger $logger
+		LoggerInterface $logger
 	) {
 		parent::__construct(
 			$appName,

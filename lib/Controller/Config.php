@@ -12,7 +12,7 @@
 
 namespace OCA\Gallery\Controller;
 
-use OCP\ILogger;
+use Psr\Log\LoggerInterface;
 
 use OCP\AppFramework\Http;
 
@@ -30,7 +30,7 @@ trait Config {
 	 */
 	private $configService;
 	/**
-	 * @var ILogger
+	 * @var LoggerInterface
 	 */
 	private $logger;
 

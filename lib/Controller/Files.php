@@ -16,7 +16,7 @@ namespace OCA\Gallery\Controller;
 
 use OCP\Files\File;
 use OCP\Files\Folder;
-use OCP\ILogger;
+use Psr\Log\LoggerInterface;
 
 use OCP\AppFramework\Http;
 
@@ -42,7 +42,7 @@ trait Files {
 	private $searchMediaService;
 	/** @var DownloadService */
 	private $downloadService;
-	/** @var ILogger */
+	/** @var LoggerInterface */
 	private $logger;
 
 	/**

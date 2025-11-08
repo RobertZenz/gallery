@@ -15,7 +15,7 @@ namespace OCA\Gallery\Tests\Controller;
 
 use OCP\IRequest;
 use OCP\IURLGenerator;
-use OCP\ILogger;
+use Psr\Log\LoggerInterface;
 use OCP\Files\File;
 
 use OCP\AppFramework\IAppContainer;
@@ -60,7 +60,7 @@ class PreviewControllerTest extends \OCA\Gallery\Tests\GalleryUnitTest {
 	protected $downloadService;
 	/** @var EventSource */
 	protected $eventSource;
-	/** @var ILogger */
+	/** @var LoggerInterface */
 	protected $logger;
 
 	/**
@@ -95,7 +95,7 @@ class PreviewControllerTest extends \OCA\Gallery\Tests\GalleryUnitTest {
 		$this->eventSource = $this->getMockBuilder('\OCA\Gallery\Utility\EventSource')
 								  ->disableOriginalConstructor()
 								  ->getMock();
-		$this->logger = $this->getMockBuilder('\OCP\ILogger')
+		$this->logger = $this->getMockBuilder('\Psr\Log\LoggerInterface')
 							 ->disableOriginalConstructor()
 							 ->getMock();
 		$this->controller = new PreviewController(

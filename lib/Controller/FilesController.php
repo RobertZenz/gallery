@@ -14,7 +14,7 @@ namespace OCA\Gallery\Controller;
 
 use OCP\IRequest;
 use OCP\IURLGenerator;
-use OCP\ILogger;
+use Psr\Log\LoggerInterface;
 
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http;
@@ -50,7 +50,7 @@ class FilesController extends Controller {
 	 * @param ConfigService $configService
 	 * @param SearchMediaService $searchMediaService
 	 * @param DownloadService $downloadService
-	 * @param ILogger $logger
+	 * @param LoggerInterface $logger
 	 */
 	public function __construct(
 		$appName,
@@ -60,7 +60,7 @@ class FilesController extends Controller {
 		ConfigService $configService,
 		SearchMediaService $searchMediaService,
 		DownloadService $downloadService,
-		ILogger $logger
+		LoggerInterface $logger
 	) {
 		parent::__construct($appName, $request);
 

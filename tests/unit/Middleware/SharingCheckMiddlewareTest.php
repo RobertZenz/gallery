@@ -20,7 +20,7 @@ use OC\AppFramework\Utility\ControllerMethodReflector;
 
 use OCP\IConfig;
 use OCP\IRequest;
-use OCP\ILogger;
+use Psr\Log\LoggerInterface;
 use OCP\IURLGenerator;
 
 use OCP\AppFramework\Controller;
@@ -50,7 +50,7 @@ class SharingCheckMiddlewareTest extends \Test\TestCase {
 	protected $reflector;
 	/** @var IURLGenerator */
 	private $urlGenerator;
-	/** @var ILogger */
+	/** @var LoggerInterface */
 	protected $logger;
 	/** @var Controller */
 	private $controller;
@@ -74,7 +74,7 @@ class SharingCheckMiddlewareTest extends \Test\TestCase {
 		$this->urlGenerator = $this->getMockBuilder('\OCP\IURLGenerator')
 								   ->disableOriginalConstructor()
 								   ->getMock();
-		$this->logger = $this->getMockBuilder('\OCP\ILogger')
+		$this->logger = $this->getMockBuilder('\Psr\Log\LoggerInterface')
 							 ->disableOriginalConstructor()
 							 ->getMock();
 		$this->controller = $this->getMockBuilder('OCP\AppFramework\Controller')

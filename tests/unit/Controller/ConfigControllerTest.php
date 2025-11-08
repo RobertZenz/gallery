@@ -14,7 +14,7 @@
 namespace OCA\Gallery\Tests\Controller;
 
 use OCP\IRequest;
-use OCP\ILogger;
+use Psr\Log\LoggerInterface;
 
 use OCP\AppFramework\Http\JSONResponse;
 use OCP\AppFramework\Http;
@@ -41,7 +41,7 @@ class ConfigControllerTest extends \Test\TestCase {
 	protected $configService;
 	/** @var PreviewService */
 	protected $previewService;
-	/** @var ILogger */
+	/** @var LoggerInterface */
 	protected $logger;
 	/** @var array */
 	private $baseMimeTypes = [
@@ -72,7 +72,7 @@ class ConfigControllerTest extends \Test\TestCase {
 		$this->previewService = $this->getMockBuilder('\OCA\Gallery\Service\PreviewService')
 									 ->disableOriginalConstructor()
 									 ->getMock();
-		$this->logger = $this->getMockBuilder('\OCP\ILogger')
+		$this->logger = $this->getMockBuilder('\Psr\Log\LoggerInterface')
 							 ->disableOriginalConstructor()
 							 ->getMock();
 		$this->controller = new ConfigController(

@@ -16,7 +16,7 @@ namespace OCA\Gallery\Middleware;
 
 use OCP\IURLGenerator;
 use OCP\IRequest;
-use OCP\ILogger;
+use Psr\Log\LoggerInterface;
 
 use OCP\AppFramework\Http\JSONResponse;
 use OCP\AppFramework\Http\RedirectResponse;
@@ -37,7 +37,7 @@ abstract class CheckMiddleware extends Middleware {
 	protected $request;
 	/** @var IURLGenerator */
 	private $urlGenerator;
-	/** @var ILogger */
+	/** @var LoggerInterface */
 	protected $logger;
 
 	/***
@@ -46,13 +46,13 @@ abstract class CheckMiddleware extends Middleware {
 	 * @param string $appName
 	 * @param IRequest $request
 	 * @param IURLGenerator $urlGenerator
-	 * @param ILogger $logger
+	 * @param LoggerInterface $logger
 	 */
 	public function __construct(
 		$appName,
 		IRequest $request,
 		IURLGenerator $urlGenerator,
-		ILogger $logger
+		LoggerInterface $logger
 	) {
 		$this->appName = $appName;
 		$this->request = $request;

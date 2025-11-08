@@ -22,7 +22,7 @@ use OCA\Gallery\Environment\NotFoundEnvException;
 use OCA\Gallery\Service\NotFoundServiceException;
 use OCA\Gallery\Service\ForbiddenServiceException;
 use OCA\Gallery\Service\InternalServerErrorServiceException;
-use OCP\ILogger;
+use Psr\Log\LoggerInterface;
 use OCP\IRequest;
 
 /**
@@ -77,7 +77,7 @@ class HttpErrorTest extends \Test\TestCase {
 	 */
 	public function testJsonError($exception, $message, $status) {
 		$request = $this->createMock(IRequest::class);
-		$logger = $this->createMock(ILogger::class);
+		$logger = $this->createMock(LoggerInterface::class);
 
 		if($exception instanceof ForbiddenServiceException) {
 			$amount = 0;

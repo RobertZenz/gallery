@@ -17,7 +17,7 @@ namespace OCA\Gallery\Environment;
 use OCP\IUserManager;
 use OCP\Share;
 use OCP\Share\IShare;
-use OCP\ILogger;
+use Psr\Log\LoggerInterface;
 use OCP\Files\IRootFolder;
 use OCP\Files\Folder;
 use OCP\Files\Node;
@@ -68,7 +68,7 @@ class Environment {
 	 */
 	private $rootFolder;
 	/**
-	 * @var ILogger
+	 * @var LoggerInterface
 	 */
 	private $logger;
 	/**
@@ -99,7 +99,7 @@ class Environment {
 	 * @param Folder|null $userFolder
 	 * @param IUserManager $userManager
 	 * @param IRootFolder $rootFolder
-	 * @param ILogger $logger
+	 * @param LoggerInterface $logger
 	 */
 	public function __construct(
 		$appName,
@@ -107,7 +107,7 @@ class Environment {
 		$userFolder,
 		IUserManager $userManager,
 		IRootFolder $rootFolder,
-		ILogger $logger
+		LoggerInterface $logger
 	) {
 		$this->appName = $appName;
 		$this->userId = $userId;

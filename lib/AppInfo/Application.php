@@ -296,7 +296,7 @@ class Application extends App {
 			// @codeCoverageIgnoreEnd
 			$container->registerService(
 				'Logger', function (IContainer $c) {
-				return $c->query('OCP\ILogger');
+				return $c->query('Psr\Log\LoggerInterface');
 			}
 			);
 		}

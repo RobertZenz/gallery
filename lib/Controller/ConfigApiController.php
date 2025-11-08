@@ -13,7 +13,7 @@
 namespace OCA\Gallery\Controller;
 
 use OCP\IRequest;
-use OCP\ILogger;
+use Psr\Log\LoggerInterface;
 
 use OCP\AppFramework\ApiController;
 use OCP\AppFramework\Http;
@@ -36,13 +36,13 @@ class ConfigApiController extends ApiController {
 	 * @param string $appName
 	 * @param IRequest $request
 	 * @param ConfigService $configService
-	 * @param ILogger $logger
+	 * @param LoggerInterface $logger
 	 */
 	public function __construct(
 		$appName,
 		IRequest $request,
 		ConfigService $configService,
-		ILogger $logger
+		LoggerInterface $logger
 	) {
 		parent::__construct($appName, $request);
 

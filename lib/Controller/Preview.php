@@ -15,7 +15,7 @@
 namespace OCA\Gallery\Controller;
 
 use OCP\IURLGenerator;
-use OCP\ILogger;
+use Psr\Log\LoggerInterface;
 use OCP\Files\File;
 
 use OCP\AppFramework\Http;
@@ -46,7 +46,7 @@ trait Preview {
 	private $previewService;
 	/** @var DownloadService */
 	private $downloadService;
-	/** @var ILogger */
+	/** @var LoggerInterface */
 	private $logger;
 	/** @type bool */
 	private $download = false;

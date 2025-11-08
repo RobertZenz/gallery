@@ -19,7 +19,7 @@ use OCP\Constants;
 use OCP\IRequest;
 use OCP\Security\IHasher;
 use OCP\ISession;
-use OCP\ILogger;
+use Psr\Log\LoggerInterface;
 use OCP\IURLGenerator;
 use OCP\Share;
 use OCP\Share\IManager;
@@ -53,7 +53,7 @@ class EnvCheckMiddlewareTest extends \OCA\Gallery\Tests\GalleryUnitTest {
 	protected $reflector;
 	/** @var IURLGenerator */
 	private $urlGenerator;
-	/** @var ILogger */
+	/** @var LoggerInterface */
 	protected $logger;
 	/** @var Controller */
 	private $controller;
@@ -85,7 +85,7 @@ class EnvCheckMiddlewareTest extends \OCA\Gallery\Tests\GalleryUnitTest {
 		$this->urlGenerator = $this->getMockBuilder('\OCP\IURLGenerator')
 								   ->disableOriginalConstructor()
 								   ->getMock();
-		$this->logger = $this->getMockBuilder('\OCP\ILogger')
+		$this->logger = $this->getMockBuilder('\Psr\Log\LoggerInterface')
 							 ->disableOriginalConstructor()
 							 ->getMock();
 		$this->controller = $this->getMockBuilder('OCP\AppFramework\Controller')

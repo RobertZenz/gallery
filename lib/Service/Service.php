@@ -13,7 +13,7 @@
 namespace OCA\Gallery\Service;
 
 use OCP\Files\Node;
-use OCP\ILogger;
+use Psr\Log\LoggerInterface;
 
 use OCA\Gallery\Environment\Environment;
 
@@ -33,7 +33,7 @@ abstract class Service {
 	 */
 	protected $environment;
 	/**
-	 * @var ILogger
+	 * @var LoggerInterface
 	 */
 	protected $logger;
 
@@ -42,12 +42,12 @@ abstract class Service {
 	 *
 	 * @param string $appName
 	 * @param Environment $environment
-	 * @param ILogger $logger
+	 * @param LoggerInterface $logger
 	 */
 	public function __construct(
 		$appName,
 		Environment $environment,
-		ILogger $logger
+		LoggerInterface $logger
 	) {
 		$this->appName = $appName;
 		$this->environment = $environment;

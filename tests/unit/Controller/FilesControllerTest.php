@@ -17,7 +17,7 @@ use OCP\IRequest;
 use OCP\IURLGenerator;
 use OCP\Files\File;
 use OCP\Files\Folder;
-use OCP\ILogger;
+use Psr\Log\LoggerInterface;
 
 use OCP\AppFramework\IAppContainer;
 use OCP\AppFramework\Http;
@@ -62,7 +62,7 @@ class FilesControllerTest extends \OCA\Gallery\Tests\GalleryUnitTest {
 	protected $searchMediaService;
 	/** @var DownloadService */
 	protected $downloadService;
-	/** @var ILogger */
+	/** @var LoggerInterface */
 	protected $logger;
 
 	/**
@@ -95,7 +95,7 @@ class FilesControllerTest extends \OCA\Gallery\Tests\GalleryUnitTest {
 		$this->downloadService = $this->getMockBuilder('\OCA\Gallery\Service\DownloadService')
 									  ->disableOriginalConstructor()
 									  ->getMock();
-		$this->logger = $this->getMockBuilder('\OCP\ILogger')
+		$this->logger = $this->getMockBuilder('\Psr\Log\LoggerInterface')
 							 ->disableOriginalConstructor()
 							 ->getMock();
 		$this->controller = new FilesController(

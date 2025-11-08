@@ -14,7 +14,7 @@ namespace OCA\Gallery\Service;
 
 use OCP\Files\Folder;
 use OCP\IPreview;
-use OCP\ILogger;
+use Psr\Log\LoggerInterface;
 
 use OCA\Gallery\Config\ConfigParser;
 use OCA\Gallery\Config\ConfigException;
@@ -76,14 +76,14 @@ class ConfigService extends FilesService {
 	 * @param Environment $environment
 	 * @param ConfigParser $configParser
 	 * @param IPreview $previewManager
-	 * @param ILogger $logger
+	 * @param LoggerInterface $logger
 	 */
 	public function __construct(
 		$appName,
 		Environment $environment,
 		ConfigParser $configParser,
 		IPreview $previewManager,
-		ILogger $logger
+		LoggerInterface $logger
 	) {
 		parent::__construct($appName, $environment, $logger);
 

@@ -14,7 +14,7 @@
 namespace OCA\Gallery\Tests\Environment;
 
 use OCP\IUserManager;
-use OCP\ILogger;
+use Psr\Log\LoggerInterface;
 use OCP\Files\IRootFolder;
 
 use OCP\AppFramework\IAppContainer;
@@ -37,7 +37,7 @@ class EnvironmentTest extends \Test\TestCase {
 	private $rootFolder;
 	/** @var IUserManager */
 	private $userManager;
-	/** @var ILogger */
+	/** @var LoggerInterface */
 	private $logger;
 	/** @var Environment */
 	private $environment;
@@ -56,7 +56,7 @@ class EnvironmentTest extends \Test\TestCase {
 		$this->rootFolder = $this->getMockBuilder('OCP\Files\IRootFolder')
 									  ->disableOriginalConstructor()
 									  ->getMock();
-		$this->logger = $this->getMockBuilder('\OCP\ILogger')
+		$this->logger = $this->getMockBuilder('\Psr\Log\LoggerInterface')
 							 ->disableOriginalConstructor()
 							 ->getMock();
 	}

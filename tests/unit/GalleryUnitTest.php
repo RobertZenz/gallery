@@ -13,7 +13,7 @@
 
 namespace OCA\Gallery\Tests;
 
-use OCP\ILogger;
+use Psr\Log\LoggerInterface;
 use OCP\Files\File;
 use OCP\Files\Folder;
 
@@ -31,7 +31,7 @@ abstract class GalleryUnitTest extends \Test\TestCase {
 	protected $appName = 'gallery';
 	/** @var Environment */
 	protected $environment;
-	/** @var ILogger */
+	/** @var LoggerInterface */
 	protected $logger;
 
 	/**
@@ -43,7 +43,7 @@ abstract class GalleryUnitTest extends \Test\TestCase {
 		$this->environment = $this->getMockBuilder('\OCA\Gallery\Environment\Environment')
 								  ->disableOriginalConstructor()
 								  ->getMock();
-		$this->logger = $this->getMockBuilder('\OCP\ILogger')
+		$this->logger = $this->getMockBuilder('\Psr\Log\LoggerInterface')
 							 ->disableOriginalConstructor()
 							 ->getMock();
 	}

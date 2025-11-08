@@ -15,7 +15,7 @@ namespace OCA\Gallery\Service;
 use OCP\Files\File;
 use OCP\Image;
 use OCP\IPreview;
-use OCP\ILogger;
+use Psr\Log\LoggerInterface;
 
 use OCA\Gallery\Environment\Environment;
 
@@ -37,13 +37,13 @@ class PreviewService extends Service {
 	 * @param string $appName
 	 * @param Environment $environment
 	 * @param IPreview $previewManager
-	 * @param ILogger $logger
+	 * @param LoggerInterface $logger
 	 */
 	public function __construct(
 		$appName,
 		Environment $environment,
 		IPreview $previewManager,
-		ILogger $logger
+		LoggerInterface $logger
 	) {
 		parent::__construct($appName, $environment, $logger);
 
