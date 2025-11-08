@@ -51,7 +51,7 @@ class ImageResponse extends Response {
 	 * @return string the file
 	 */
 	public function render() {
-		if ($this->preview instanceof \OC_Image) {
+		if ($this->preview instanceof \OC\Image) {
 			// Uses imagepng() to output the image
 			return $this->preview->data();
 		} else {
