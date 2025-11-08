@@ -240,7 +240,7 @@ class EnvCheckMiddleware extends CheckMiddleware {
 	 * @throws CheckException
 	 */
 	private function authenticate($share, $password) {
-		if ((int)$share->getShareType() === Share::SHARE_TYPE_LINK) {
+		if ((int)$share->getShareType() === IShare::TYPE_LINK) {
 			$this->checkPassword($share, $password);
 		} else {
 			throw new CheckException(
