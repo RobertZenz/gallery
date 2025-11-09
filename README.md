@@ -2,7 +2,7 @@
 
 This is a hacked together version of Gallery to make it work on NextCloud 32 (and above?).
 
- > **ATTENTION**: Due to changes on the NextCloud clientside, the upload functionality is no longer funcitonal.
+ > **ATTENTION**: Due to changes on the NextCloud clientside, the upload functionality is no longer functional.
  > 
  > If you wanna take a stab it, it's in `js/galleryview.js`, the object `OCA.Files.OperationProgressBar` no longer exists (lines 26 and 315). Given that I don't use that functionality, it's highly unlikely that I will attempt to fix it.
 
