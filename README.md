@@ -2,6 +2,10 @@
 
 This is a hacked together version of Gallery to make it work on NextCloud 32 (and above?).
 
+ > **ATTENTION**: Due to changes on the NextCloud clientside, the upload functionality is no longer funcitonal.
+ > 
+ > If you wanna take a stab it, it's in `js/galleryview.js`, the object `OCA.Files.OperationProgressBar` no longer exists (lines 26 and 315). Given that I don't use that functionality, it's highly unlikely that I will attempt to fix it.
+
 No new features are planned to be implemented but if you notice that something is broken you can open an issue for it.
 
 To install the app, download [this repository as zip](https://github.com/RobertZenz/gallery/archive/refs/heads/master.zip), unpack it and copy the "gallery-master" directory into the NextCloud apps directory. Rename it from "gallery-master" to "gallery" while you're at it. Then you should be able to activate it just like any other app.

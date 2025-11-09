@@ -23,7 +23,7 @@
 	var View = function () {
 		this.element = $('#gallery');
 		this.loadVisibleRows.loading = false;
-		this._setupUploader();
+		// TODO this._setupUploader();
 		this.breadcrumb = new Gallery.Breadcrumb();
 		this.emptyContentElement = $('#emptycontent');
 		this.controlsElement = $('#controls');
